@@ -1,0 +1,34 @@
+.{
+    .name = .zig_pkgs,
+    .version = "0.0.1",
+    .dependencies = .{
+        .zlib_src = .{
+            .url = "https://github.com/madler/zlib/archive/refs/tags/v1.3.1.tar.gz",
+            .hash = "N-V-__8AAB0eQwD-0MdOEBmz7intriBReIsIDNlukNVoNu6o",
+            .lazy = true,
+        },
+        .zstd_src = .{
+            .url = "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz",
+            .hash = "N-V-__8AAPZ7fwBg4JoCzM_0o2A8wxH2hsUUeiU1iuZv53L5",
+            .lazy = true,
+        },
+        .libelf_src = .{
+            .url = "https://github.com/arachsys/libelf/archive/refs/tags/v0.193.tar.gz",
+            .hash = "N-V-__8AADAQDABABYcU3oPOZvXOitWW80pglqQnI7B2AiJm",
+            .lazy = true,
+        },
+        .libbpf_src = .{
+            .url = "https://github.com/libbpf/libbpf/archive/refs/tags/v1.7.0.tar.gz",
+            .hash = "N-V-__8AAJb6QwBAkBOVjg7v-0jgJT_ABV0UBSdxTjcmmEy4",
+            .lazy = true,
+        },
+        // .vmlinux = .{
+        //     .url = "https://github.com/libbpf/vmlinux.h/archive/5c36ac2080a8d3c1216470ce97e6502ed50272e5.tar.gz",
+        //     .hash = "N-V-__8AAHX4eQB6q8t9nyLRAxGtWNo8WtrmgshFkf0984rY",
+        //     .lazy = true,
+        // },
+    },
+    .minimum_zig_version = "0.17.0-dev.1756+613c03321",
+    .paths = .{""},
+    .fingerprint = 0x252365449e13a805,
+}
