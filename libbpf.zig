@@ -14,7 +14,7 @@ pub fn build(
     const libelf = try deps.libelf_lazy;
 
     const libbpf = b.addLibrary(.{
-        .name = "libbpf",
+        .name = "bpf",
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,

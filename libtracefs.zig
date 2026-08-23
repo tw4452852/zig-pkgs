@@ -12,7 +12,7 @@ pub fn build(
     const libtraceevent = try deps.libtraceevent_lazy;
 
     const lib = b.addLibrary(.{
-        .name = "libtracefs",
+        .name = "tracefs",
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,

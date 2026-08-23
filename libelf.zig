@@ -15,7 +15,7 @@ pub fn build(
 
     const libelf = b.addLibrary(.{
         .linkage = .static,
-        .name = "libelf",
+        .name = "elf",
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,

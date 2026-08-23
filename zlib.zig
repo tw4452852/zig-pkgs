@@ -8,7 +8,7 @@ pub fn build(
     const pic = b.option(bool, "zlib.pie", "Produce Position Independent Code");
     const upstream = try b.dependencyLazy("zlib_src", .{});
     const lib = b.addLibrary(.{
-        .name = "zlib",
+        .name = "z",
         .linkage = .static,
         .root_module = b.createModule(.{
             .target = target,

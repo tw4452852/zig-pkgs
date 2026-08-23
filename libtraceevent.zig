@@ -8,7 +8,7 @@ pub fn build(
     const upstream = b.dependency("libtraceevent_src", .{});
 
     const lib = b.addLibrary(.{
-        .name = "libtraceevent",
+        .name = "traceevent",
         .linkage = .static,
         .root_module = b.createModule(.{
             .target = target,

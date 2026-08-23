@@ -9,7 +9,7 @@ pub fn build(
     const is_freestanding = target.result.os.tag == .freestanding;
 
     const lib = b.addLibrary(.{
-        .name = "libfdt",
+        .name = "fdt",
         .root_module = b.createModule(.{
             .root_source_file = b.path("libfdt/helpers.zig"),
             .target = target,
