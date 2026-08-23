@@ -4,6 +4,7 @@ const zstd = @import("zstd.zig");
 const libelf = @import("libelf.zig");
 const libbpf = @import("libbpf.zig");
 const libtraceevent = @import("libtraceevent.zig");
+const libtracefs = @import("libtracefs.zig");
 
 pub const Artifact = enum {
     zlib,
@@ -11,6 +12,7 @@ pub const Artifact = enum {
     libelf,
     libbpf,
     libtraceevent,
+    libtracefs,
 };
 
 pub fn build(b: *std.Build) error{LazyDependencyNeeded}!void {
@@ -61,6 +63,10 @@ fn buildOne(
                 break :b libbpf.build(b, target, optimize, compile_zlib, compile_libelf);
             },
             .libtraceevent => libtraceevent.build(b, target, optimize),
+            .libtracefs => b: {
+                const compile_libtraceevent = buildOne(b, .libtraceevent, target, optimize, built);
+                break :b libtracefs.build(b, target, optimize, compile_libtraceevent);
+            },
         };
         built[@backingInt(artifact)] = result;
         return result;

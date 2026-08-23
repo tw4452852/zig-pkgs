@@ -32,6 +32,11 @@
             .hash = "N-V-__8AADMICwATB-_1g-STbEb5N8eOcWpCDAnxKe6U6ulb",
             .lazy = true,
         },
+        .libtracefs_src = .{
+            .url = "https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.3.tar.gz",
+            .hash = "N-V-__8AANzTDwAT1McJXJQJMsxGnRnFjfzm4hfzMjdQIZdK",
+            .lazy = true,
+        },
     },
     .minimum_zig_version = "0.17.0-dev.1756+613c03321",
     .paths = .{""},
