@@ -119,6 +119,26 @@ pub fn build(
         }
     }
 
+    // testing
+    const write_file_step = b.addWriteFiles();
+    const c_file = write_file_step.add("main.c",
+        \\#include <zstd.h>
+        \\int main(void) { ZSTD_versionNumber(); return 0; }
+    );
+    const exe_root_module = b.createModule(.{
+        .target = target,
+        .optimize = optimize,
+    });
+    exe_root_module.addCSourceFile(.{ .file = c_file });
+    exe_root_module.addIncludePath(upstream.path("lib"));
+    exe_root_module.linkLibrary(zstd);
+    const build_exe = b.addExecutable(.{
+        .name = "zstd_test",
+        .root_module = exe_root_module,
+    });
+    _ = build_exe.getEmittedBin(); // trigger linking
+    b.getInstallStep().dependOn(&build_exe.step);
+
     return zstd;
 }
 
