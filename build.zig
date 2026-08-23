@@ -55,17 +55,17 @@ fn buildOne(
             .libelf => b: {
                 const compile_zlib = buildOne(b, .zlib, target, optimize, built);
                 const compile_zstd = buildOne(b, .zstd, target, optimize, built);
-                break :b libelf.build(b, target, optimize, compile_zlib, compile_zstd);
+                break :b libelf.build(b, target, optimize, .{ .zlib_lazy = compile_zlib, .zstd_lazy = compile_zstd });
             },
             .libbpf => b: {
                 const compile_zlib = buildOne(b, .zlib, target, optimize, built);
                 const compile_libelf = buildOne(b, .libelf, target, optimize, built);
-                break :b libbpf.build(b, target, optimize, compile_zlib, compile_libelf);
+                break :b libbpf.build(b, target, optimize, .{ .zlib_lazy = compile_zlib, .libelf_lazy = compile_libelf });
             },
             .libtraceevent => libtraceevent.build(b, target, optimize),
             .libtracefs => b: {
                 const compile_libtraceevent = buildOne(b, .libtraceevent, target, optimize, built);
-                break :b libtracefs.build(b, target, optimize, compile_libtraceevent);
+                break :b libtracefs.build(b, target, optimize, .{ .libtraceevent_lazy = compile_libtraceevent });
             },
         };
         built[@backingInt(artifact)] = result;

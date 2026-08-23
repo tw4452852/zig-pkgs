@@ -4,12 +4,14 @@ pub fn build(
     b: *std.Build,
     target: std.Build.ResolvedTarget,
     optimize: std.builtin.OptimizeMode,
-    zlib_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile,
-    libelf_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile,
+    deps: struct {
+        zlib_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile,
+        libelf_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile,
+    },
 ) error{LazyDependencyNeeded}!*std.Build.Step.Compile {
     const upstream = try b.dependencyLazy("libbpf_src", .{});
-    const zlib = try zlib_lazy;
-    const libelf = try libelf_lazy;
+    const zlib = try deps.zlib_lazy;
+    const libelf = try deps.libelf_lazy;
 
     const libbpf = b.addLibrary(.{
         .name = "libbpf",

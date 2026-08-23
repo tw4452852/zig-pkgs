@@ -1,8 +1,15 @@
 const std = @import("std");
 
-pub fn build(b: *std.Build, target: std.Build.ResolvedTarget, optimize: std.builtin.OptimizeMode, libtraceevent_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile) error{LazyDependencyNeeded}!*std.Build.Step.Compile {
+pub fn build(
+    b: *std.Build,
+    target: std.Build.ResolvedTarget,
+    optimize: std.builtin.OptimizeMode,
+    deps: struct {
+        libtraceevent_lazy: error{LazyDependencyNeeded}!*std.Build.Step.Compile,
+    },
+) error{LazyDependencyNeeded}!*std.Build.Step.Compile {
     const upstream = b.dependency("libtracefs_src", .{});
-    const libtraceevent = try libtraceevent_lazy;
+    const libtraceevent = try deps.libtraceevent_lazy;
 
     const lib = b.addLibrary(.{
         .name = "libtracefs",
