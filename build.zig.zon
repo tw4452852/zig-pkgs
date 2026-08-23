@@ -27,6 +27,11 @@
         //     .hash = "N-V-__8AAHX4eQB6q8t9nyLRAxGtWNo8WtrmgshFkf0984rY",
         //     .lazy = true,
         // },
+        .libtraceevent_src = .{
+            .url = "https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/snapshot/libtraceevent-1.9.0.tar.gz",
+            .hash = "N-V-__8AADMICwATB-_1g-STbEb5N8eOcWpCDAnxKe6U6ulb",
+            .lazy = true,
+        },
     },
     .minimum_zig_version = "0.17.0-dev.1756+613c03321",
     .paths = .{""},
