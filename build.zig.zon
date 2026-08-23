@@ -37,6 +37,11 @@
             .hash = "N-V-__8AANzTDwAT1McJXJQJMsxGnRnFjfzm4hfzMjdQIZdK",
             .lazy = true,
         },
+        .dtc_src = .{
+            .url = "https://github.com/dgibson/dtc/archive/refs/tags/v1.8.1.tar.gz",
+            .hash = "N-V-__8AAOPvDQAqjeKzr9fdM0_hu4HFl1fdb-e3IuHw6jSU",
+            .lazy = true,
+        },
     },
     .minimum_zig_version = "0.17.0-dev.1824+7988f7952",
     .paths = .{""},

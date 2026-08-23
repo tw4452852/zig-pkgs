@@ -24,3 +24,6 @@ jobs:
       - run: zig build -Dtarget=x86_64-linux-musl
       - run: zig build -Dtarget=aarch64-linux-gnu
       - run: zig build -Dtarget=x86_64-linux-gnu
+      # libfdt support on freestanding
+      - run: zig build -Dinclude=libfdt -Dtarget=x86_64-freestanding
+      - run: zig build -Dinclude=libfdt -Dtarget=aarch64-freestanding

@@ -1,0 +1,10 @@
+extern unsigned long strtoul(const char *, char **, int);
+extern void *memcpy(void *, const void *, unsigned long);
+extern void *memset(void *, int, unsigned long);
+extern void *memmove(void *, const void *, unsigned long);
+extern int memcmp(const void *, const void *, unsigned long);
+extern void *memchr(const void *, int, unsigned long);
+extern unsigned long strlen(const char *);
+extern char *strchr(const char *, int);
+extern char *strrchr(const char *, int);
+extern size_t strnlen(const char *, size_t);
