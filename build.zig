@@ -19,7 +19,7 @@ pub const Artifact = enum {
 
 pub fn build(b: *std.Build) error{LazyDependencyNeeded}!void {
     const target = b.standardTargetOptions(.{});
-    const optimize = b.standardOptimizeOption(.{}) orelse .debug;
+    const optimize = b.standardOptimizeOption(.{});
     const artifacts_opt = b.option([]Artifact, "include", "The artifact you want to include, if not specified, include all");
 
     const artifacts = if (artifacts_opt) |artifacts| artifacts else b: {

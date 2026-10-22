@@ -43,7 +43,7 @@
             .lazy = true,
         },
     },
-    .minimum_zig_version = "0.18.0-dev.349+d924f83bf",
+    .minimum_zig_version = "0.18.0-dev.367+187d0bf9e",
     .paths = .{""},
     .fingerprint = 0x252365449e13a805,
 }
